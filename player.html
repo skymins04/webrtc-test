@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webrtc</title>
+    <script src="./player.js"></script>
+  </head>
+  <body>
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+      .state {
+        color: red;
+      }
+    </style>
+    <h1>Player side</h1>
+    <div>
+      <button onclick="createOffer()">createOffer</button>
+      <input type="text" id="local-description" readonly />
+    </div>
+    <div>
+      <input type="text" id="remote-description" />
+      <button onclick="acceptAnswer()">accept answer</button>
+    </div>
+    <div>
+      total state: <span class="state" id="total-state">not connected</span>
+    </div>
+    <div>
+      <input type="text" id="message" />
+      <button onclick="sendMessage()">send</button>
+    </div>
+    <div id="msgbox"></div>
+  </body>
+</html>

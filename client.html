@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.onload = (e) => {
+        $.ajax({
+          type: "POST",
+          url: "http://stream-music-api.netlify.app/.netlify/functions/state",
+          data: JSON.stringify({
+            type: "client",
+            channelId: "87731334-8826-414c-8b94-da6bbefa4b82",
+            state: true,
+          }),
+        });
+      };
+      window.onbeforeunload = (e) => {
+        $.ajax({
+          type: "POST",
+          url: "http://stream-music-api.netlify.app/.netlify/functions/state",
+          data: JSON.stringify({
+            type: "client",
+            channelId: "87731334-8826-414c-8b94-da6bbefa4b82",
+            state: false,
+          }),
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1>hello world</h1>
+  </body>
+</html>
